@@ -1,0 +1,35 @@
+name: GitHub CI
+on: [pull_request, push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ['16']
+
+    name: ecdh-signature (NodeJS ${{ matrix.node-version }})
+    steps:
+    - name: Checkout Git repository
+      uses: actions/checkout@v2
+
+    - name: Setup NodeJS
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: npm install
+      run: |
+        npm install
+
+    - name: Get NPM dependency tree
+      run: |
+        npm -s ls ||:
+
+    - name: npm run lint
+      run: |
+        npm run lint
+          
+    - name: npm run test
+      run: |
+        npm run test
