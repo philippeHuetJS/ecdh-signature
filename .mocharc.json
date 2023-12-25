@@ -1,0 +1,8 @@
+{
+  "reporter": "mochawesome",
+  "reporterOption": [
+    "reportDir=report",
+    "reportFilename=report",
+    "reportPageTitle=ecdh-signature"
+  ]
+}
