@@ -1,0 +1,9 @@
+.github/
+report/
+test/
+.eslintignore
+.eslintrc.yml
+.gitignore
+.mocharc.json
+.prettierignore
+.prettierrc
